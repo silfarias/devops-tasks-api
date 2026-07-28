@@ -1,25 +1,32 @@
 # Evidencias del Proyecto Integrador DevOps
 
-Esta carpeta contiene capturas y evidencias del avance del proyecto integrador.
+Esta carpeta reúne las evidencias técnicas del avance del Proyecto Integrador Final.
 
-## Pipeline de GitHub Actions
+El objetivo de esta documentación es registrar, de forma ordenada, las pruebas realizadas sobre el pipeline CI/CD, la construcción del contenedor Docker y la validación de infraestructura como código con Terraform.
 
-El pipeline de GitHub Actions ejecuta automáticamente lint, tests, build y construcción de la imagen Docker ante cada push o pull request hacia `main`.
+## Evidencias disponibles
 
-La siguiente captura muestra una ejecución exitosa del workflow `CI`:
+| Documento            | Descripción                                                                                          |
+| -------------------- | ---------------------------------------------------------------------------------------------------- |
+| `ci-cd-evidence.md`  | Evidencia del workflow de GitHub Actions, incluyendo validaciones de aplicación, Docker y Terraform. |
+| `terraform-local.md` | Evidencia de ejecución local de Terraform para crear y destruir infraestructura Docker.              |
+| `capturas/`          | Carpeta con capturas utilizadas como respaldo visual de las pruebas realizadas.                      |
 
-![Workflow CI exitoso](./capturas/github-actions-success.png)
+## Captura principal del pipeline
 
-## Validaciones incluidas en el pipeline
+La siguiente captura muestra una ejecución exitosa del workflow `CI`, con los jobs de aplicación y validación de Terraform finalizados correctamente.
 
-El workflow ejecuta las siguientes etapas:
+![Workflow CI con aplicación, Docker y Terraform](./capturas/github-actions-ci-terraform-success.png)
 
-1. Checkout del repositorio.
-2. Configuración de Node.js.
-3. Instalación de dependencias con Yarn.
-4. Ejecución de ESLint.
-5. Ejecución de tests con Jest.
-6. Build de la aplicación NestJS.
-7. Construcción de la imagen Docker.
+## Estado actual de evidencias
 
-Esta evidencia será utilizada en la documentación final del Proyecto Integrador para demostrar el funcionamiento del pipeline CI/CD.
+| Área                  | Estado   | Evidencia                                                               |
+| --------------------- | -------- | ----------------------------------------------------------------------- |
+| Aplicación NestJS     | Validada | Lint, tests y build ejecutados en GitHub Actions                        |
+| Docker                | Validado | Imagen Docker construida en el pipeline                                 |
+| Terraform             | Validado | Archivos `.tf` formateados, inicializados y validados en GitHub Actions |
+| Infraestructura local | Validada | Contenedor Docker creado y destruido mediante Terraform                 |
+
+## Observación
+
+El pipeline valida Terraform, pero no ejecuta `terraform apply` desde GitHub Actions. El despliegue local se realiza desde la máquina de desarrollo porque depende de Docker Desktop y del entorno local donde se ejecuta el proyecto.
