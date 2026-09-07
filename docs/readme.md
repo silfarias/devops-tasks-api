@@ -15,7 +15,7 @@ Seguí este orden al armar el informe final:
 3. [Docker](./docker/docker.md)
 4. [Terraform](./terraform/terraform-local.md)
 5. [Seguridad — SBOM](./seguridad/sbom.md)
-6. [Seguridad — Snyk](./seguridad/snyk.md) *(pendiente)*
+6. [Seguridad — Snyk](./seguridad/snyk.md) *(integrado, validar corrida)*
 7. [Monitoreo](./monitoreo/prometheus-grafana.md) *(pendiente)*
 8. Capturas en [capturas/](./capturas/)
 
@@ -48,11 +48,11 @@ docs/
 | Área | Documento | Estado | Descripción |
 | --- | --- | --- | --- |
 | Aplicación | [aplicacion/overview.md](./aplicacion/overview.md) | Validado | API NestJS, endpoints y alcance del PIN |
-| CI/CD | [cicd/github-actions.md](./cicd/github-actions.md) | Validado | Pipeline: lint, test, build, SBOM, Docker, Terraform validate |
+| CI/CD | [cicd/github-actions.md](./cicd/github-actions.md) | Validado | Pipeline: lint, test, build, SBOM, Snyk, Docker, Terraform validate |
 | Docker | [docker/docker.md](./docker/docker.md) | Validado | Dockerfile multi-stage y build de imagen |
 | Terraform | [terraform/terraform-local.md](./terraform/terraform-local.md) | Validado | Infra local: red + contenedor Docker |
 | Seguridad | [seguridad/sbom.md](./seguridad/sbom.md) | Validado | SBOM CycloneDX + artifact en CI |
-| Seguridad | [seguridad/snyk.md](./seguridad/snyk.md) | Pendiente | Escaneo de vulnerabilidades |
+| Seguridad | [seguridad/snyk.md](./seguridad/snyk.md) | Integrado | Escaneo de vulnerabilidades en CI (validar corrida) |
 | Monitoreo | [monitoreo/prometheus-grafana.md](./monitoreo/prometheus-grafana.md) | Pendiente | `/metrics`, Prometheus y Grafana |
 | Capturas | [capturas/](./capturas/) | En progreso | Respaldo visual para la entrega |
 
@@ -71,7 +71,7 @@ Ejecución exitosa del workflow `CI` (aplicación + Terraform):
 | Docker | Validado |
 | Terraform local + validate en CI | Validado |
 | SBOM CycloneDX | Validado |
-| Snyk | Pendiente |
+| Snyk | Integrado (validar corrida en Actions) |
 | Monitoreo Prometheus/Grafana | Pendiente |
 | Documento formal final | En armado a partir de esta carpeta |
 
@@ -90,11 +90,11 @@ GitHub Actions (lint + test + build)
     ↓
 SBOM CycloneDX
     ↓
+Snyk (escaneo de vulnerabilidades)
+    ↓
 Docker build
     ↓
 Terraform validate (CI) + apply local
-    ↓
-Snyk (pendiente)
     ↓
 Prometheus + Grafana (pendiente)
 ```

@@ -1,37 +1,98 @@
-# Snyk — pendiente
+# Snyk en el proyecto
+
+## Explicación rápida (para entenderlo)
+
+### ¿Qué es?
+
+**Snyk** es una herramienta de seguridad que analiza las dependencias del proyecto y detecta **vulnerabilidades conocidas**.
+
+No reemplaza al SBOM:
+
+* **SBOM** = lista de componentes (`sbom/bom.json`)
+* **Snyk** = control que busca problemas de seguridad en esas dependencias
+
+### ¿Para qué sirve en este proyecto?
+
+En el Proyecto 1 del PIN, la rúbrica de seguridad pide:
+
+> SBOM + análisis de código/dependencias en el pipeline
+
+ESLint cubre calidad de código.  
+SBOM cubre inventario.  
+Snyk cubre el análisis de vulnerabilidades de dependencias.
 
 ## Estado
 
-**Pendiente.** Todavía no está integrado en este proyecto.
+**Integrado en el workflow.** Pendiente validar una corrida exitosa en GitHub Actions y guardar captura.
 
-## Objetivo en el PIN
+## Cómo está implementado
 
-Sumar un control de seguridad que analice vulnerabilidades conocidas en las dependencias, complementando el SBOM (que solo inventaría componentes).
+### 1. Secret en GitHub
+
+El token de Snyk se guarda como secret del repositorio:
+
+```text
+SNYK_TOKEN
+```
+
+El workflow lo consume así:
+
+```yml
+env:
+  SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+```
+
+Reglas:
+
+* No hardcodear el token en el código
+* No commitear el token en `.env`
+* Si el token se expone, revocarlo y crear uno nuevo
+
+### 2. Paso en GitHub Actions
+
+En `.github/workflows/ci.yml`, después del SBOM y antes del Docker build:
+
+```yml
+- name: Run Snyk to check for vulnerabilities
+  uses: snyk/actions/node@master
+  env:
+    SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+  with:
+    args: --severity=high --file=package.json
+```
+
+Qué hace:
+
+* Escanea dependencias del proyecto Node/Yarn
+* Falla el pipeline si encuentra vulnerabilidades de severidad **high** o superior
+* Usa el secret `SNYK_TOKEN` para autenticarse contra Snyk
 
 ## Relación con el SBOM
 
-| SBOM (ya implementado) | Snyk (pendiente) |
-| --- | --- |
-| Lista qué componentes hay | Busca vulnerabilidades conocidas |
-| Evidencia: `sbom/bom.json` | Evidencia: reporte / escaneo en CI |
-| No detecta CVEs por sí solo | Analiza riesgos de seguridad |
+| Aspecto | SBOM | Snyk |
+| --- | --- | --- |
+| Qué hace | Inventaría componentes | Busca vulnerabilidades conocidas |
+| Evidencia | `sbom/bom.json` + artifact `cyclonedx-sbom` | Paso del workflow + logs/captura |
+| ¿Detecta CVEs? | No | Sí |
+| Estado | Validado | Integrado (validar corrida) |
 
 Ver [sbom.md](./sbom.md).
 
-## Cómo se piensa integrar (cuando se implemente)
+## Cómo validarlo
 
-1. Crear un secret de GitHub llamado `SNYK_TOKEN`.
-2. Usarlo en el workflow como `${{ secrets.SNYK_TOKEN }}`.
-3. Ejecutar análisis de dependencias en CI.
-4. Guardar reporte o evidencia del análisis.
-5. Documentar el resultado en esta carpeta (reemplazando este placeholder).
+1. Asegurarte de que el secret `SNYK_TOKEN` exista en GitHub.
+2. Hacer push del cambio del workflow a `main` (o abrir un PR).
+3. Abrir la pestaña **Actions** del repo.
+4. Entrar al workflow `CI`.
+5. Verificar el paso `Run Snyk to check for vulnerabilities`.
+6. Guardar captura en `docs/capturas/` (por ejemplo `snyk-ci-success.png`).
 
-## Reglas
+## Posibles resultados
 
-* No hardcodear tokens.
-* No commitear secretos.
-* No inventar resultados de escaneo antes de integrar la herramienta.
+* **Verde:** no hay vulnerabilidades high/critical (o Snyk no encontró issues por encima del umbral).
+* **Rojo por vulnerabilidades:** Snyk encontró issues high/critical; hay que revisar el log y decidir remediar o documentar el hallazgo.
+* **Rojo por autenticación:** el secret está mal nombrado, vacío o el token fue revocado.
 
-## Resumen para exposición oral (estado actual)
+## Resumen para exposición oral
 
-Hoy el proyecto ya tiene SBOM como inventario de componentes. El siguiente paso de seguridad es integrar Snyk para escanear vulnerabilidades, usando un secret `SNYK_TOKEN` en GitHub Actions, sin exponer credenciales en el repositorio.
+Integramos Snyk en GitHub Actions para escanear vulnerabilidades de dependencias. El token se guarda como secret `SNYK_TOKEN` y no se versiona en el repositorio. En el pipeline, después de generar el SBOM, Snyk analiza `package.json` y falla si detecta vulnerabilidades de severidad alta o crítica. Así cumplimos la parte de análisis de seguridad del Proyecto 1: el SBOM nos dice qué usamos; Snyk nos dice si eso tiene riesgos conocidos.

@@ -56,6 +56,13 @@ jobs:
           path: sbom/bom.json
           if-no-files-found: error
 
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/node@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity=high --file=package.json
+
       - name: Build Docker image
         run: docker build -t devops-tasks-api:${{ github.sha }} .
 

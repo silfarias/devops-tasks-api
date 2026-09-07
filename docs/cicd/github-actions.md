@@ -2,7 +2,7 @@
 
 ## Objetivo
 
-Validar que el proyecto `devops-tasks-api` cuenta con un pipeline automatizado en GitHub Actions para controlar calidad, pruebas, compilación, generación de SBOM, construcción de imagen Docker y validación de infraestructura Terraform.
+Validar que el proyecto `devops-tasks-api` cuenta con un pipeline automatizado en GitHub Actions para controlar calidad, pruebas, compilación, generación de SBOM, escaneo de vulnerabilidades con Snyk, construcción de imagen Docker y validación de infraestructura Terraform.
 
 ## Workflow utilizado
 
@@ -23,8 +23,8 @@ El workflow está dividido en dos jobs principales:
 
 | Job                            | Propósito                                                                   |
 | ------------------------------ | --------------------------------------------------------------------------- |
-| `Lint, test, build and Docker` | Validar la aplicación NestJS, generar SBOM y construir la imagen Docker.    |
-| `Terraform validate`           | Validar la configuración de infraestructura definida en la carpeta `infra`. |
+| `Lint, test, build and Docker` | Validar la aplicación NestJS, generar SBOM, escanear con Snyk y construir la imagen Docker. |
+| `Terraform validate`           | Validar la configuración de infraestructura definida en la carpeta `infra`.                 |
 
 ## Validaciones de la aplicación
 
@@ -41,9 +41,10 @@ El primer job ejecuta las siguientes etapas:
 9. Build de la aplicación NestJS (`yarn build`).
 10. Generación del SBOM CycloneDX (`yarn sbom`).
 11. Upload del artifact `cyclonedx-sbom` (`sbom/bom.json`).
-12. Construcción de la imagen Docker.
+12. Escaneo de vulnerabilidades con Snyk.
+13. Construcción de la imagen Docker.
 
-Estas validaciones permiten detectar errores de código, fallos de pruebas, problemas de compilación, ausencia del SBOM o fallos en la construcción del contenedor antes de avanzar con nuevos cambios.
+Estas validaciones permiten detectar errores de código, fallos de pruebas, problemas de compilación, ausencia del SBOM, vulnerabilidades de dependencias o fallos en la construcción del contenedor antes de avanzar con nuevos cambios.
 
 ## Generación de SBOM en CI
 
@@ -62,6 +63,21 @@ Después del build, el pipeline genera el inventario de componentes y lo publica
 ```
 
 Más detalle en [seguridad/sbom.md](../seguridad/sbom.md).
+
+## Escaneo con Snyk en CI
+
+Después del SBOM, el pipeline analiza vulnerabilidades de dependencias:
+
+```yml
+- name: Run Snyk to check for vulnerabilities
+  uses: snyk/actions/node@master
+  env:
+    SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+  with:
+    args: --severity=high --file=package.json
+```
+
+Más detalle en [seguridad/snyk.md](../seguridad/snyk.md).
 
 ## Validaciones de Terraform
 
@@ -107,6 +123,7 @@ El pipeline finalizó correctamente, validando:
 * Pruebas automáticas.
 * Build de NestJS.
 * Generación y publicación del SBOM.
+* Escaneo de vulnerabilidades con Snyk.
 * Construcción de imagen Docker.
 * Formato y validez de archivos Terraform.
 
