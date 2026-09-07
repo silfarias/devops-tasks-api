@@ -79,7 +79,24 @@ Importante: no usar `--file=package.json` en este proyecto, porque Snyk puede re
 
 Ver [sbom.md](./sbom.md).
 
-## Cómo validarlo
+## Remediación aplicada
+
+Snyk detectó vulnerabilidades High en dependencias transitivas de `@nestjs/platform-express`:
+
+* `multer@2.2.0` → forzada a `2.3.0`
+* `qs@6.15.3` → forzada a `6.16.0`
+
+Como Nest todavía puede pedir versiones anteriores, se fijaron con Yarn `resolutions` en `package.json`:
+
+```json
+"resolutions": {
+  "multer": "2.3.0",
+  "qs": "6.16.0"
+}
+```
+
+Después se regeneró `yarn.lock` con `yarn install`.
+
 
 1. Asegurarte de que el secret `SNYK_TOKEN` exista en GitHub.
 2. Hacer push del cambio del workflow a `main` (o abrir un PR).
