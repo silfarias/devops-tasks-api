@@ -61,7 +61,7 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --severity=high --file=package.json
+          args: --severity=high --package-manager=yarn --file=yarn.lock
 
       - name: Build Docker image
         run: docker build -t devops-tasks-api:${{ github.sha }} .

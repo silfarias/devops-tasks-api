@@ -74,9 +74,8 @@ Después del SBOM, el pipeline analiza vulnerabilidades de dependencias:
   env:
     SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
   with:
-    args: --severity=high --file=package.json
+    args: --severity=high --package-manager=yarn --file=yarn.lock
 ```
-
 Más detalle en [seguridad/snyk.md](../seguridad/snyk.md).
 
 ## Validaciones de Terraform

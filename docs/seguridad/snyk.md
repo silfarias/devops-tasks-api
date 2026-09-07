@@ -58,15 +58,16 @@ En `.github/workflows/ci.yml`, después del SBOM y antes del Docker build:
   env:
     SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
   with:
-    args: --severity=high --file=package.json
+    args: --severity=high --package-manager=yarn --file=yarn.lock
 ```
 
 Qué hace:
 
-* Escanea dependencias del proyecto Node/Yarn
+* Escanea dependencias según el lockfile real de Yarn (`yarn.lock`)
 * Falla el pipeline si encuentra vulnerabilidades de severidad **high** o superior
 * Usa el secret `SNYK_TOKEN` para autenticarse contra Snyk
 
+Importante: no usar `--file=package.json` en este proyecto, porque Snyk puede resolver como npm e ignorar las versiones fijadas por Yarn.
 ## Relación con el SBOM
 
 | Aspecto | SBOM | Snyk |
