@@ -3,6 +3,11 @@
 /node_modules
 /build
 
+# Lockfiles de otros gestores (este proyecto usa solo Yarn)
+package-lock.json
+npm-shrinkwrap.json
+pnpm-lock.yaml
+
 # Yarn 4
 .pnp.*
 .yarn/*
