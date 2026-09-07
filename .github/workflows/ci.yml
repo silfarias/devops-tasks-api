@@ -20,7 +20,8 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
-          node-version: 22
+          node-version: 24
+          package-manager-cache: false
 
       - name: Enable Corepack
         run: corepack enable
@@ -61,6 +62,7 @@ jobs:
   terraform:
     name: Terraform validate
     runs-on: ubuntu-latest
+
     defaults:
       run:
         working-directory: infra
