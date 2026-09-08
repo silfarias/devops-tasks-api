@@ -8,6 +8,8 @@ La aplicación es una API NestJS de tareas en memoria. Sirve de base para demost
 El detalle operativo (comandos, stack, URLs) está en el [README de la raíz](../README.md).  
 Esta carpeta concentra la **evidencia** de la entrega.
 
+Checklist de cierre y defensa: [checklist-final.md](./checklist-final.md).
+
 ## Qué se demuestra
 
 | Área | Evidencia principal |
