@@ -1,98 +1,292 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+# devops-tasks-api
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+API REST simple de tareas desarrollada con **NestJS** y **TypeScript**.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Este proyecto se utiliza como aplicación base para implementar un flujo DevOps completo dentro del **Proyecto Integrador Final (PIN)** de la Diplomatura Universitaria en DevOps.
 
-## Description
+## Contexto del PIN
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+El repositorio corresponde al **Proyecto 1: CI/CD con GitHub Actions + Terraform + Docker**.
 
-## Project setup
+El objetivo técnico es demostrar, sobre una aplicación funcional y simple:
 
-```bash
-$ yarn install
+* CI/CD automatizado.
+* Construcción de contenedores Docker.
+* Infraestructura como código con Terraform.
+* Controles de seguridad con ESLint, SBOM y Snyk.
+* Monitoreo local con Prometheus y Grafana.
+* Documentación técnica con evidencias.
+
+La aplicación trabaja con tareas en memoria. No incluye base de datos, frontend ni autenticación, ya que el foco principal del proyecto es el flujo DevOps y no la complejidad funcional de la aplicación. Para facilitar la exploración de endpoints, la API incluye documentación interactiva con **Swagger** en `/api`.
+
+## Stack utilizado
+
+| Categoría                   | Tecnología             |
+| --------------------------- | ---------------------- |
+| Runtime                     | Node.js 24             |
+| Package manager             | Yarn 4.18.0 + Corepack |
+| Framework                   | NestJS + TypeScript    |
+| Documentación de API        | Swagger (OpenAPI)      |
+| Calidad y testing           | Jest + ESLint          |
+| Contenedores                | Docker                 |
+| Infraestructura como código | Terraform              |
+| CI/CD                       | GitHub Actions         |
+| SBOM                        | CycloneDX              |
+| Seguridad                   | Snyk                   |
+| Monitoreo                   | Prometheus + Grafana   |
+
+## Endpoints principales
+
+```text
+GET    /
+GET    /health
+GET    /tasks
+POST   /tasks
+PATCH  /tasks/:id
+PATCH  /tasks/:id/complete
+DELETE /tasks/:id
+GET    /metrics
 ```
 
-## Compile and run the project
+La documentación interactiva de la API está disponible con **Swagger** en:
 
-```bash
-# development
-$ yarn run start
-
-# watch mode
-$ yarn run start:dev
-
-# production mode
-$ yarn run start:prod
+```text
+http://localhost:3000/api
 ```
 
-## Run tests
+## Desarrollo local
+
+### 1. Preparar Yarn con Corepack
 
 ```bash
-# unit tests
-$ yarn run test
-
-# e2e tests
-$ yarn run test:e2e
-
-# test coverage
-$ yarn run test:cov
+corepack enable
+corepack prepare yarn@4.18.0 --activate
 ```
 
-## Deployment
-
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
-
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+### 2. Instalar dependencias
 
 ```bash
-$ yarn install -g @nestjs/mau
-$ mau deploy
+yarn install
 ```
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+### 3. Levantar la aplicación
 
-## Resources
+```bash
+yarn start:dev
+```
 
-Check out a few resources that may come in handy when working with NestJS:
+### 4. Probar endpoints principales
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+En Windows:
 
-## Support
+```bash
+curl.exe http://localhost:3000/health
+curl.exe http://localhost:3000/tasks
+curl.exe http://localhost:3000/metrics
+```
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+También se puede explorar la API desde Swagger UI:
 
-## Stay in touch
+```text
+http://localhost:3000/api
+```
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
+En Linux/macOS o Git Bash:
 
-## License
+```bash
+curl http://localhost:3000/health
+curl http://localhost:3000/tasks
+curl http://localhost:3000/metrics
+```
 
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+## Scripts principales
+
+```bash
+yarn lint
+yarn test
+yarn build
+yarn sbom
+```
+
+| Script       | Descripción                                  |
+| ------------ | -------------------------------------------- |
+| `yarn lint`  | Ejecuta análisis estático con ESLint.        |
+| `yarn test`  | Ejecuta tests unitarios con Jest.            |
+| `yarn build` | Compila la aplicación NestJS.                |
+| `yarn sbom`  | Genera el SBOM CycloneDX en `sbom/bom.json`. |
+
+## Docker
+
+Construir la imagen Docker:
+
+```bash
+docker build -t devops-tasks-api:0.1.0 .
+```
+
+Ejecutar la imagen manualmente:
+
+```bash
+docker run --name devops-tasks-api -p 3000:3000 devops-tasks-api:0.1.0
+```
+
+> En el flujo principal del PIN, el contenedor se gestiona con Terraform. La ejecución manual con `docker run` se mantiene solo como prueba directa de la imagen.
+
+## Infraestructura local con Terraform
+
+Terraform gestiona la infraestructura local sobre Docker Desktop.
+
+Recursos creados:
+
+* Red Docker del proyecto.
+* Contenedor de la API.
+* Contenedor de Prometheus.
+* Contenedor de Grafana.
+
+Comandos principales:
+
+```bash
+cd infra
+terraform init
+terraform fmt
+terraform validate
+terraform plan
+terraform apply
+```
+
+Para destruir el entorno local:
+
+```bash
+terraform destroy
+```
+
+## URLs locales
+
+| Servicio     | URL                           |
+| ------------ | ----------------------------- |
+| API          | http://localhost:3000         |
+| Swagger UI   | http://localhost:3000/api     |
+| Health check | http://localhost:3000/health  |
+| Métricas     | http://localhost:3000/metrics |
+| Prometheus   | http://localhost:9090         |
+| Grafana      | http://localhost:3001         |
+
+Credenciales locales de Grafana:
+
+```text
+Usuario: admin
+Password: admin
+```
+
+## Pipeline CI/CD
+
+El workflow principal se encuentra en:
+
+```text
+.github/workflows/ci.yml
+```
+
+Se ejecuta automáticamente ante:
+
+* Push a `main`.
+* Pull request hacia `main`.
+
+El pipeline realiza:
+
+1. Configuración de Node.js 24.
+2. Activación de Corepack y Yarn 4.18.0.
+3. Instalación de dependencias con `yarn install --immutable`.
+4. Análisis de código con ESLint.
+5. Ejecución de tests con Jest.
+6. Compilación de la aplicación.
+7. Generación del SBOM CycloneDX.
+8. Publicación del SBOM como artifact.
+9. Escaneo de dependencias con Snyk.
+10. Construcción de imagen Docker.
+11. Validación de Terraform con `fmt`, `init` y `validate`.
+
+GitHub Actions valida Terraform, pero no ejecuta `terraform apply` ni `terraform destroy`, porque el despliegue local depende de Docker Desktop en la máquina de desarrollo.
+
+## Seguridad
+
+El proyecto incluye controles de seguridad orientados al pipeline:
+
+* **ESLint** para análisis estático y buenas prácticas de código.
+* **SBOM CycloneDX** para inventariar componentes y dependencias.
+* **Snyk** para análisis de vulnerabilidades en dependencias.
+* **GitHub Secrets** para gestionar el token `SNYK_TOKEN`.
+
+No se hardcodean secretos en el repositorio.
+
+El SBOM se genera en:
+
+```text
+sbom/bom.json
+```
+
+Y también se publica como artifact del workflow con el nombre:
+
+```text
+cyclonedx-sbom
+```
+
+## Monitoreo
+
+La API expone métricas en:
+
+```text
+GET /metrics
+```
+
+El endpoint utiliza `prom-client` y expone:
+
+* Métricas default de Node.js.
+* Cantidad total de requests HTTP.
+* Duración de requests HTTP.
+* Labels por método, ruta y status code.
+
+Prometheus recolecta las métricas desde:
+
+```text
+devops-tasks-api:3000/metrics
+```
+
+Grafana utiliza Prometheus como datasource y muestra un dashboard básico provisionado automáticamente.
+
+El stack de monitoreo se levanta localmente con Terraform.
+
+## Documentación y evidencias
+
+La carpeta [`docs/`](./docs/) contiene documentación y evidencias organizadas por herramienta:
+
+* Aplicación.
+* CI/CD.
+* Docker.
+* Terraform.
+* Seguridad.
+* SBOM.
+* Snyk.
+* Monitoreo.
+* Capturas.
+
+Índice de evidencias:
+
+```text
+docs/readme.md
+```
+
+## Estado frente a la rúbrica
+
+| Criterio                  | Estado    |
+| ------------------------- | --------- |
+| Pipeline CI/CD            | Listo     |
+| Infraestructura Terraform | Listo     |
+| Contenedor Docker         | Listo     |
+| Seguridad                 | Listo     |
+| Observabilidad            | Listo     |
+| Documentación             | En cierre |
+
+## Aclaración sobre la opción local
+
+El proyecto utiliza la **opción local**, no nube.
+
+La infraestructura se ejecuta sobre Docker Desktop y se gestiona mediante Terraform. Esta decisión permite demostrar infraestructura como código, contenedores, monitoreo y seguridad sin depender de costos, permisos o recursos externos de AWS, Azure o GCP.
