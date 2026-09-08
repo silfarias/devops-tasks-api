@@ -1,6 +1,6 @@
-- Documentar cómo correr el proyecto localmente.
-- Revisar y mejorar el README final.
-- Preparar capturas para la presentación.
-- Armar el guion del video demostrativo.
-- Probar endpoints y registrar resultados.
-- Ayudar con Prometheus/Grafana.
+1. README general final
+2. Validación completa local
+3. Capturas finales ordenadas
+4. Guion de defensa oral
+5. ZIP final de entrega
+6. Video demostrativo opcional

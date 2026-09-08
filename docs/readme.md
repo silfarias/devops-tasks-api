@@ -16,8 +16,9 @@ Seguí este orden al armar el informe final:
 4. [Terraform](./terraform/terraform-local.md)
 5. [Seguridad — SBOM](./seguridad/sbom.md)
 6. [Seguridad — Snyk](./seguridad/snyk.md) *(integrado, validar corrida)*
-7. [Monitoreo](./monitoreo/prometheus-grafana.md) *(pendiente)*
-8. Capturas en [capturas/](./capturas/)
+7. [Monitoreo](./monitoreo/prometheus-grafana.md)
+8. [Evidencia de monitoreo](./monitoring-evidence.md)
+9. Capturas en [capturas/](./capturas/)
 
 Cada documento incluye contexto técnico y, cuando aplica, un resumen útil para la exposición.
 
@@ -40,6 +41,7 @@ docs/
 │   └── snyk.md
 ├── monitoreo/
 │   └── prometheus-grafana.md
+├── monitoring-evidence.md
 └── capturas/
 ```
 
@@ -53,7 +55,8 @@ docs/
 | Terraform | [terraform/terraform-local.md](./terraform/terraform-local.md) | Validado | Infra local: red + contenedor Docker |
 | Seguridad | [seguridad/sbom.md](./seguridad/sbom.md) | Validado | SBOM CycloneDX + artifact en CI |
 | Seguridad | [seguridad/snyk.md](./seguridad/snyk.md) | Integrado | Escaneo de vulnerabilidades en CI (validar corrida) |
-| Monitoreo | [monitoreo/prometheus-grafana.md](./monitoreo/prometheus-grafana.md) | Pendiente | `/metrics`, Prometheus y Grafana |
+| Monitoreo | [monitoreo/prometheus-grafana.md](./monitoreo/prometheus-grafana.md) | Implementado | Resumen del stack Prometheus + Grafana |
+| Monitoreo | [monitoring-evidence.md](./monitoring-evidence.md) | Implementado | Evidencia: scrape, dashboard y comandos Terraform |
 | Capturas | [capturas/](./capturas/) | En progreso | Respaldo visual para la entrega |
 
 ## Captura principal del pipeline
@@ -72,7 +75,7 @@ Ejecución exitosa del workflow `CI` (aplicación + Terraform):
 | Terraform local + validate en CI | Validado |
 | SBOM CycloneDX | Validado |
 | Snyk | Integrado (validar corrida en Actions) |
-| Monitoreo Prometheus/Grafana | Pendiente |
+| Monitoreo Prometheus/Grafana | Implementado (falta capturas de evidencia) |
 | Documento formal final | En armado a partir de esta carpeta |
 
 ## Observaciones importantes
@@ -96,5 +99,5 @@ Docker build
     ↓
 Terraform validate (CI) + apply local
     ↓
-Prometheus + Grafana (pendiente)
+Prometheus + Grafana (monitoreo local)
 ```
