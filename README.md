@@ -256,22 +256,15 @@ El stack de monitoreo se levanta localmente con Terraform.
 
 ## Documentación y evidencias
 
-La carpeta [`docs/`](./docs/) contiene documentación y evidencias organizadas por herramienta:
+La carpeta [`docs/`](./docs/) concentra la evidencia de entrega:
 
-* Aplicación.
-* CI/CD.
-* Docker.
-* Terraform.
-* Seguridad.
-* SBOM.
-* Snyk.
-* Monitoreo.
-* Capturas.
+* Resumen breve del PIN y tabla de evidencias
+* Capturas en [`docs/capturas/`](./docs/capturas/)
 
-Índice de evidencias:
+Índice:
 
 ```text
-docs/readme.md
+docs/README.md
 ```
 
 ## Estado frente a la rúbrica
