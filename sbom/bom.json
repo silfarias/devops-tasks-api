@@ -3,9 +3,9 @@
   "bomFormat": "CycloneDX",
   "specVersion": "1.6",
   "version": 1,
-  "serialNumber": "urn:uuid:2b5e37d1-88df-49c4-82d4-6aaa81a83cac",
+  "serialNumber": "urn:uuid:f6e9be97-74c3-4642-86db-9df4a0de9ac1",
   "metadata": {
-    "timestamp": "2026-09-07T16:47:26.835Z",
+    "timestamp": "2026-09-16T13:40:22.112Z",
     "tools": {
       "components": [
         {
@@ -321,6 +321,41 @@
         },
         {
           "url": "https://github.com/nestjs/schematics/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "swagger",
+      "group": "@nestjs",
+      "version": "11.4.7",
+      "bom-ref": "@nestjs/swagger@npm:11.4.7 [ba71f]",
+      "author": "Kamil Mysliwiec",
+      "description": "Nest - modern, fast, powerful node.js web framework (@swagger)",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40nestjs/swagger@11.4.7",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/nestjs/swagger.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/nestjs/swagger#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/nestjs/swagger/issues",
           "type": "issue-tracker",
           "comment": "as detected from PackageJson property \"bugs.url\""
         }
@@ -763,6 +798,40 @@
         },
         {
           "url": "https://github.com/prettier/prettier/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "prom-client",
+      "version": "15.1.3",
+      "bom-ref": "prom-client@npm:15.1.3",
+      "author": "Simon Nyberg",
+      "description": "Client for prometheus",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/prom-client@15.1.3",
+      "externalReferences": [
+        {
+          "url": "git+ssh://git@github.com/siimon/prom-client.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/siimon/prom-client",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/siimon/prom-client/issues",
           "type": "issue-tracker",
           "comment": "as detected from PackageJson property \"bugs.url\""
         }
@@ -3514,8 +3583,8 @@
     {
       "type": "library",
       "name": "qs",
-      "version": "6.15.3",
-      "bom-ref": "qs@npm:6.15.3",
+      "version": "6.16.0",
+      "bom-ref": "qs@npm:6.16.0",
       "description": "A querystring parser that supports nesting and arrays, with a depth limit",
       "licenses": [
         {
@@ -3525,7 +3594,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/qs@6.15.3",
+      "purl": "pkg:npm/qs@6.16.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/ljharb/qs.git",
@@ -4657,6 +4726,109 @@
         },
         {
           "url": "https://github.com/Microsoft/TypeScript/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "api",
+      "group": "@opentelemetry",
+      "version": "1.9.1",
+      "bom-ref": "@opentelemetry/api@npm:1.9.1",
+      "author": "OpenTelemetry Authors",
+      "description": "Public API for OpenTelemetry",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40opentelemetry/api@1.9.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/open-telemetry/opentelemetry-js.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/open-telemetry/opentelemetry-js/tree/main/api",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/open-telemetry/opentelemetry-js/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "tdigest",
+      "version": "0.1.3",
+      "bom-ref": "tdigest@npm:0.1.3",
+      "author": "Will Welch",
+      "description": "javascript implementation of Dunning's T-Digest for streaming quantile approximation",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/tdigest@0.1.3",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/welch/tdigest.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/welch/tdigest",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/welch/tdigest/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "bintrees",
+      "version": "1.0.2",
+      "bom-ref": "bintrees@npm:1.0.2",
+      "author": "Vadim Graboys",
+      "description": "Binary Search Trees",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/bintrees@1.0.2",
+      "externalReferences": [
+        {
+          "url": "git://github.com/vadimg/js_bintrees.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/vadimg/js_bintrees#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/vadimg/js_bintrees/issues",
           "type": "issue-tracker",
           "comment": "as detected from PackageJson property \"bugs.url\""
         }
@@ -17341,6 +17513,276 @@
     },
     {
       "type": "library",
+      "name": "tsdoc",
+      "group": "@microsoft",
+      "version": "0.16.0",
+      "bom-ref": "@microsoft/tsdoc@npm:0.16.0",
+      "description": "A parser for the TypeScript doc comment syntax",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40microsoft/tsdoc@0.16.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/microsoft/tsdoc.git#tsdoc",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\" and \"repository.directory\""
+        },
+        {
+          "url": "https://tsdoc.org/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/microsoft/tsdoc/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "mapped-types",
+      "group": "@nestjs",
+      "version": "2.1.1",
+      "bom-ref": "@nestjs/mapped-types@npm:2.1.1 [3c146]",
+      "author": "Kamil Mysliwiec",
+      "description": "Nest - modern, fast, powerful node.js web framework (@mapped-types)",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40nestjs/mapped-types@2.1.1?vcs_url=https%3A%2F%2Fgithub.com%2Fnestjs%2Fmapped-types",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/nestjs/mapped-types.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/nestjs/mapped-types#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/nestjs/mapped-types/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "js-yaml",
+      "version": "5.3.0",
+      "bom-ref": "js-yaml@npm:5.3.0",
+      "author": "Vladimir Zapparov",
+      "description": "YAML 1.2 parser and serializer",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/js-yaml@5.3.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/nodeca/js-yaml.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/nodeca/js-yaml#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/nodeca/js-yaml/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "lodash",
+      "version": "4.18.1",
+      "bom-ref": "lodash@npm:4.18.1",
+      "author": "John-David Dalton",
+      "description": "Lodash modular utilities.",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/lodash@4.18.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/lodash/lodash.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://lodash.com/",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/lodash/lodash/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "path-to-regexp",
+      "version": "8.4.2",
+      "bom-ref": "path-to-regexp@npm:8.4.2",
+      "description": "Express style path to RegExp utility",
+      "licenses": [
+        {
+          "license": {
+            "id": "MIT",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/path-to-regexp@8.4.2",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/pillarjs/path-to-regexp.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/pillarjs/path-to-regexp#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/pillarjs/path-to-regexp/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "swagger-ui-dist",
+      "version": "5.32.13",
+      "bom-ref": "swagger-ui-dist@npm:5.32.13",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/swagger-ui-dist@5.32.13",
+      "externalReferences": [
+        {
+          "url": "git+ssh://git@github.com/swagger-api/swagger-ui.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/swagger-api/swagger-ui#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/swagger-api/swagger-ui/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "scarf",
+      "group": "@scarf",
+      "version": "1.4.0",
+      "bom-ref": "@scarf/scarf@npm:1.4.0",
+      "author": "Scarf Systems",
+      "description": "Scarf is like Google Analytics for your npm packages. Gain insights into how your packages are installed and used, and by which companies.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Apache-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/%40scarf/scarf@1.4.0",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/scarf-sh/scarf-js.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/scarf-sh/scarf-js",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/scarf-sh/scarf-js/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        }
+      ]
+    },
+    {
+      "type": "library",
+      "name": "argparse",
+      "version": "2.0.1",
+      "bom-ref": "argparse@npm:2.0.1",
+      "description": "CLI arguments parser. Native port of python's argparse.",
+      "licenses": [
+        {
+          "license": {
+            "id": "Python-2.0",
+            "acknowledgement": "declared"
+          }
+        }
+      ],
+      "purl": "pkg:npm/argparse@2.0.1",
+      "externalReferences": [
+        {
+          "url": "git+https://github.com/nodeca/argparse.git",
+          "type": "vcs",
+          "comment": "as detected from PackageJson property \"repository.url\""
+        },
+        {
+          "url": "https://github.com/nodeca/argparse#readme",
+          "type": "website",
+          "comment": "as detected from PackageJson property \"homepage\""
+        },
+        {
+          "url": "https://github.com/nodeca/argparse/issues",
+          "type": "issue-tracker",
+          "comment": "as detected from PackageJson property \"bugs.url\""
+        }
+      ]
+    },
+    {
+      "type": "library",
       "name": "core",
       "group": "@angular-devkit",
       "version": "19.2.24",
@@ -18530,8 +18972,8 @@
     {
       "type": "library",
       "name": "multer",
-      "version": "2.2.0",
-      "bom-ref": "multer@npm:2.2.0",
+      "version": "2.3.0",
+      "bom-ref": "multer@npm:2.3.0",
       "description": "Middleware for handling `multipart/form-data`.",
       "licenses": [
         {
@@ -18541,7 +18983,7 @@
           }
         }
       ],
-      "purl": "pkg:npm/multer@2.2.0",
+      "purl": "pkg:npm/multer@2.3.0",
       "externalReferences": [
         {
           "url": "git+https://github.com/expressjs/multer.git",
@@ -18555,39 +18997,6 @@
         },
         {
           "url": "https://github.com/expressjs/multer/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "path-to-regexp",
-      "version": "8.4.2",
-      "bom-ref": "path-to-regexp@npm:8.4.2",
-      "description": "Express style path to RegExp utility",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "acknowledgement": "declared"
-          }
-        }
-      ],
-      "purl": "pkg:npm/path-to-regexp@8.4.2",
-      "externalReferences": [
-        {
-          "url": "git+https://github.com/pillarjs/path-to-regexp.git",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
-        },
-        {
-          "url": "https://github.com/pillarjs/path-to-regexp#readme",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/pillarjs/path-to-regexp/issues",
           "type": "issue-tracker",
           "comment": "as detected from PackageJson property \"bugs.url\""
         }
@@ -22439,40 +22848,6 @@
     },
     {
       "type": "library",
-      "name": "lodash",
-      "version": "4.18.1",
-      "bom-ref": "lodash@npm:4.18.1",
-      "author": "John-David Dalton",
-      "description": "Lodash modular utilities.",
-      "licenses": [
-        {
-          "license": {
-            "id": "MIT",
-            "acknowledgement": "declared"
-          }
-        }
-      ],
-      "purl": "pkg:npm/lodash@4.18.1",
-      "externalReferences": [
-        {
-          "url": "git+https://github.com/lodash/lodash.git",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
-        },
-        {
-          "url": "https://lodash.com/",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/lodash/lodash/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        }
-      ]
-    },
-    {
-      "type": "library",
       "name": "path-scurry",
       "version": "2.0.2",
       "bom-ref": "path-scurry@npm:2.0.2",
@@ -22940,39 +23315,6 @@
         },
         {
           "url": "https://github.com/sindresorhus/path-type/issues",
-          "type": "issue-tracker",
-          "comment": "as detected from PackageJson property \"bugs.url\""
-        }
-      ]
-    },
-    {
-      "type": "library",
-      "name": "argparse",
-      "version": "2.0.1",
-      "bom-ref": "argparse@npm:2.0.1",
-      "description": "CLI arguments parser. Native port of python's argparse.",
-      "licenses": [
-        {
-          "license": {
-            "id": "Python-2.0",
-            "acknowledgement": "declared"
-          }
-        }
-      ],
-      "purl": "pkg:npm/argparse@2.0.1",
-      "externalReferences": [
-        {
-          "url": "git+https://github.com/nodeca/argparse.git",
-          "type": "vcs",
-          "comment": "as detected from PackageJson property \"repository.url\""
-        },
-        {
-          "url": "https://github.com/nodeca/argparse#readme",
-          "type": "website",
-          "comment": "as detected from PackageJson property \"homepage\""
-        },
-        {
-          "url": "https://github.com/nodeca/argparse/issues",
           "type": "issue-tracker",
           "comment": "as detected from PackageJson property \"bugs.url\""
         }
@@ -23993,6 +24335,7 @@
         "@nestjs/core@npm:11.1.28 [ba71f]",
         "@nestjs/platform-express@npm:11.1.28 [ba71f]",
         "@nestjs/schematics@npm:11.1.0 [ba71f]",
+        "@nestjs/swagger@npm:11.4.7 [ba71f]",
         "@nestjs/testing@npm:11.1.28 [ba71f]",
         "@types/express@npm:5.0.6",
         "@types/jest@npm:30.0.0",
@@ -24006,6 +24349,7 @@
         "globals@npm:17.8.0",
         "jest@npm:30.4.2 [ba71f]",
         "prettier@npm:3.9.6",
+        "prom-client@npm:15.1.3",
         "reflect-metadata@npm:0.2.2",
         "rxjs@npm:7.8.2",
         "source-map-support@npm:0.5.21",
@@ -24093,7 +24437,7 @@
         "@nestjs/core@npm:11.1.28 [ba71f]",
         "cors@npm:2.8.6",
         "express@npm:5.2.1",
-        "multer@npm:2.2.0",
+        "multer@npm:2.3.0",
         "path-to-regexp@npm:8.4.2",
         "tslib@npm:2.8.1"
       ]
@@ -24108,6 +24452,22 @@
         "pluralize@npm:8.0.0",
         "prettier@npm:3.9.6",
         "typescript@patch:typescript@npm%3A5.9.3#optional!builtin<compat/typescript>::version=5.9.3&hash=5786d5"
+      ]
+    },
+    {
+      "ref": "@nestjs/swagger@npm:11.4.7 [ba71f]",
+      "dependsOn": [
+        "@microsoft/tsdoc@npm:0.16.0",
+        "@nestjs/common@npm:11.1.28 [ba71f]",
+        "@nestjs/core@npm:11.1.28 [ba71f]",
+        "@nestjs/mapped-types@npm:2.1.1 [3c146]",
+        "class-transformer@npm:0.5.1",
+        "class-validator@npm:0.15.1",
+        "js-yaml@npm:5.3.0",
+        "lodash@npm:4.18.1",
+        "path-to-regexp@npm:8.4.2",
+        "reflect-metadata@npm:0.2.2",
+        "swagger-ui-dist@npm:5.32.13"
       ]
     },
     {
@@ -24227,6 +24587,13 @@
     },
     {
       "ref": "prettier@npm:3.9.6"
+    },
+    {
+      "ref": "prom-client@npm:15.1.3",
+      "dependsOn": [
+        "@opentelemetry/api@npm:1.9.1",
+        "tdigest@npm:0.1.3"
+      ]
     },
     {
       "ref": "reflect-metadata@npm:0.2.2"
@@ -24647,7 +25014,7 @@
         "formidable@npm:3.5.4",
         "methods@npm:1.1.2",
         "mime@npm:2.6.0",
-        "qs@npm:6.15.3"
+        "qs@npm:6.16.0"
       ]
     },
     {
@@ -24681,7 +25048,7 @@
       "ref": "mime@npm:2.6.0"
     },
     {
-      "ref": "qs@npm:6.15.3",
+      "ref": "qs@npm:6.16.0",
       "dependsOn": [
         "es-define-property@npm:1.0.1",
         "side-channel@npm:1.1.1"
@@ -24869,6 +25236,18 @@
     },
     {
       "ref": "tslib@npm:2.8.1"
+    },
+    {
+      "ref": "@opentelemetry/api@npm:1.9.1"
+    },
+    {
+      "ref": "tdigest@npm:0.1.3",
+      "dependsOn": [
+        "bintrees@npm:1.0.2"
+      ]
+    },
+    {
+      "ref": "bintrees@npm:1.0.2"
     },
     {
       "ref": "@jest/core@npm:30.4.2 [d5ca9]",
@@ -27210,6 +27589,42 @@
       ]
     },
     {
+      "ref": "@microsoft/tsdoc@npm:0.16.0"
+    },
+    {
+      "ref": "@nestjs/mapped-types@npm:2.1.1 [3c146]",
+      "dependsOn": [
+        "@nestjs/common@npm:11.1.28 [ba71f]",
+        "class-transformer@npm:0.5.1",
+        "class-validator@npm:0.15.1",
+        "reflect-metadata@npm:0.2.2"
+      ]
+    },
+    {
+      "ref": "js-yaml@npm:5.3.0",
+      "dependsOn": [
+        "argparse@npm:2.0.1"
+      ]
+    },
+    {
+      "ref": "lodash@npm:4.18.1"
+    },
+    {
+      "ref": "path-to-regexp@npm:8.4.2"
+    },
+    {
+      "ref": "swagger-ui-dist@npm:5.32.13",
+      "dependsOn": [
+        "@scarf/scarf@npm:1.4.0"
+      ]
+    },
+    {
+      "ref": "@scarf/scarf@npm:1.4.0"
+    },
+    {
+      "ref": "argparse@npm:2.0.1"
+    },
+    {
       "ref": "@angular-devkit/core@npm:19.2.24 [ac92b]",
       "dependsOn": [
         "ajv@npm:8.18.0",
@@ -27417,7 +27832,7 @@
         "once@npm:1.4.0",
         "parseurl@npm:1.3.3",
         "proxy-addr@npm:2.0.7",
-        "qs@npm:6.15.3",
+        "qs@npm:6.16.0",
         "range-parser@npm:1.3.0",
         "router@npm:2.2.0",
         "send@npm:1.2.1",
@@ -27428,16 +27843,13 @@
       ]
     },
     {
-      "ref": "multer@npm:2.2.0",
+      "ref": "multer@npm:2.3.0",
       "dependsOn": [
         "append-field@npm:1.0.0",
         "busboy@npm:1.6.0",
         "concat-stream@npm:2.0.0",
         "type-is@npm:1.6.18"
       ]
-    },
-    {
-      "ref": "path-to-regexp@npm:8.4.2"
     },
     {
       "ref": "append-field@npm:1.0.0"
@@ -27489,7 +27901,7 @@
         "http-errors@npm:2.0.1",
         "iconv-lite@npm:0.7.3",
         "on-finished@npm:2.4.1",
-        "qs@npm:6.15.3",
+        "qs@npm:6.16.0",
         "raw-body@npm:3.0.2",
         "type-is@npm:2.1.0"
       ]
@@ -28119,9 +28531,6 @@
       ]
     },
     {
-      "ref": "lodash@npm:4.18.1"
-    },
-    {
       "ref": "path-scurry@npm:2.0.2",
       "dependsOn": [
         "lru-cache@npm:11.5.2",
@@ -28200,9 +28609,6 @@
     },
     {
       "ref": "path-type@npm:4.0.0"
-    },
-    {
-      "ref": "argparse@npm:2.0.1"
     },
     {
       "ref": "parent-module@npm:1.0.1",

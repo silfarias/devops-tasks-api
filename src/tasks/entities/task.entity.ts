@@ -10,7 +10,10 @@ export class Task {
   })
   title: string;
 
-  @ApiProperty({ example: false, description: 'Indica si la tarea está completa' })
+  @ApiProperty({
+    example: false,
+    description: 'Indica si la tarea está completa',
+  })
   completed: boolean;
 
   @ApiProperty({

@@ -30,7 +30,11 @@ export class TasksController {
 
   @Get()
   @ApiOperation({ summary: 'Listar todas las tareas' })
-  @ApiOkResponse({ description: 'Listado de tareas', type: Task, isArray: true })
+  @ApiOkResponse({
+    description: 'Listado de tareas',
+    type: Task,
+    isArray: true,
+  })
   findAll(): Task[] {
     return this.tasksService.findAll();
   }
