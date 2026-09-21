@@ -1,5 +1,5 @@
 # ---- Dependencies ----
-FROM node:24-alpine AS deps
+FROM node:22-alpine AS deps
 
 WORKDIR /app
 
@@ -9,7 +9,7 @@ COPY package.json yarn.lock .yarnrc.yml ./
 RUN yarn install --immutable
 
 # ---- Build ----
-FROM node:24-alpine AS builder
+FROM node:22-alpine AS builder
 
 WORKDIR /app
 
@@ -22,7 +22,7 @@ COPY . .
 RUN yarn build
 
 # ---- Production ----
-FROM node:24-alpine AS production
+FROM node:22-alpine AS production
 
 WORKDIR /app
 

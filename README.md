@@ -23,7 +23,7 @@ La aplicación trabaja con tareas en memoria. No incluye base de datos, frontend
 
 | Categoría                   | Tecnología             |
 | --------------------------- | ---------------------- |
-| Runtime                     | Node.js 24             |
+| Runtime                     | Node.js 22 LTS         |
 | Package manager             | Yarn 4.18.0 + Corepack |
 | Framework                   | NestJS + TypeScript    |
 | Documentación de API        | Swagger (OpenAPI)      |
@@ -192,7 +192,7 @@ Se ejecuta automáticamente ante:
 
 El pipeline realiza:
 
-1. Configuración de Node.js 24.
+1. Configuración de Node.js 22.
 2. Activación de Corepack y Yarn 4.18.0.
 3. Instalación de dependencias con `yarn install --immutable`.
 4. Análisis de código con ESLint.
