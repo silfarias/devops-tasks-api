@@ -21,7 +21,7 @@ El proyecto `devops-tasks-api` ya tiene implementado lo principal de la rúbrica
 | --- | --- | --- | --- |
 | Aplicación | Listo | Endpoints `/`, `/health`, `/tasks`, `/metrics`, Swagger `/api` | Revisar demo de endpoints |
 | Docker | Listo | `Dockerfile`, imagen `devops-tasks-api:0.1.0` | Revalidar build antes de entregar |
-| Terraform | Listo | `infra/` crea red, API, Prometheus y Grafana | Revalidar apply/destroy local |
+| Terraform | Listo | `infra/` crea red, API, Prometheus y Grafana | Revalidar apply/destroy en Ubuntu Server |
 | CI/CD | Listo | `.github/workflows/ci.yml` | Confirmar última corrida en verde |
 | Seguridad | Listo | ESLint + SBOM + Snyk | Ninguno técnico mayor |
 | SBOM | Listo | `sbom/bom.json`, artifact `cyclonedx-sbom` | Regenerar si cambian deps |
@@ -53,7 +53,7 @@ terraform apply
 terraform destroy
 ```
 
-Aclaración: `terraform apply` y `terraform destroy` se ejecutan **solo en la máquina de desarrollo** con Docker Desktop. GitHub Actions valida Terraform (`fmt`, `init`, `validate`), pero no despliega infraestructura.
+Aclaración: `terraform apply` y `terraform destroy` se ejecutan **solo en Ubuntu Server** con Docker Engine. GitHub Actions valida Terraform (`fmt`, `init`, `validate`), pero no despliega infraestructura. La imagen `devops-tasks-api:0.1.0` debe construirse en el servidor antes del `apply`.
 
 ## 4. Checklist de evidencias
 
@@ -61,6 +61,8 @@ Capturas actuales en `docs/capturas/`:
 
 | Captura | Qué demuestra |
 | --- | --- |
+| `api-health-swagger.png` | Swagger UI y prueba del endpoint `/health` |
+| `dockerfile-image.png` | Dockerfile multi-stage con `node:22-alpine` y usuario no root |
 | `github-actions-ci-terraform-success.png` | Pipeline CI en verde (aplicación + Terraform validate) |
 | `snyk-ci-success.png` | Escaneo Snyk exitoso sobre `yarn.lock` |
 | `output-terraform-apply.png` | Apply local con API, Prometheus y Grafana |
@@ -69,9 +71,9 @@ Capturas actuales en `docs/capturas/`:
 
 ## 5. Pendientes reales
 
-* Revisar README raíz completo.
-* Revisar `docs/README.md`.
-* Validar el proyecto desde cero siguiendo el README.
+* Validar el proyecto desde cero en Ubuntu Server siguiendo el README.
+* Rehacer en Ubuntu Server las capturas de `terraform apply`, Prometheus y Grafana (la captura actual de `terraform apply` es de Windows).
+* Actualizar las capturas de CI y Snyk con la última corrida en verde (Node.js 22 y resoluciones de `multer` y `proxy-addr`).
 * Preparar guion de defensa oral.
 * Preparar distribución de exposición entre integrantes.
 * Crear ZIP final de entrega.
