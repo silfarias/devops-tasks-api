@@ -343,18 +343,8 @@ El stack de monitoreo se levanta localmente con Terraform.
 
 La carpeta [`docs/`](./docs/) concentra la evidencia de entrega:
 
-* Resumen breve del PIN y tabla de evidencias (`docs/readme.md`)
-* Checklist de cierre y defensa (`docs/checklist-final.md`)
-* Informe técnico del proyecto (`docs/Informe-Tecnico-PIN-Devops.docx`)
+* Resumen del PIN y tabla de evidencias ([`docs/readme.md`](./docs/readme.md))
 * Capturas en [`docs/capturas/`](./docs/capturas/)
-
-Índice:
-
-```text
-docs/readme.md
-docs/checklist-final.md
-docs/Informe-Tecnico-PIN-Devops.docx
-```
 
 ## Estado frente a la rúbrica
 
